@@ -93,3 +93,19 @@
   - `useState` is equivalent to `this.state`
   - `useEffect` is equivalent to `componentDidMount`
   - There are multiple hooks available, and the react documentation provides a great guide as to how to use them
+
+## NextJs
+
+- Commands to keep in mind when working with nextjs.
+  - `npm run dev`
+  - `npm run build`
+  - `npm run export`
+
+- With the introduction of Nextjs 13, there is a new way to handle routes
+  - Previously it relied on client side routing
+  - Now it supports server side routing
+    - Leverages the power of React streaming architecture to make the page more responsive
+    - Reduces initial page size
+    - Adds more security as private keys or access tokens can be easily added to the components as they are rendered in the server side
+      - Nextjs replaces them with blank strings unless specified as public
+
