@@ -2,10 +2,6 @@ import type { NextPage } from "next";
 import React, { useState, useEffect } from "react";
 
 const PageComponentWeather : NextPage = () => {
-    interface WeatherProps {
-        weather: string
-    }
-
     const WeatherComponent = (props: WeatherProps) => {
         const [count, setCount] = useState(0);
 

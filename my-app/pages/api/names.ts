@@ -1,19 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-type ResponseItem = {
-    id: string;
-    name: string;
-};
-
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
-) : Promise<NextApiResponse<ResponseItem[]> | void> {
+) : Promise<NextApiResponse<responseItemType[]> | void> {
     const url = "https://www.usemodernfullstack.dev/api/v1/users";
     let data;
     try {
         const response = await fetch(url);
-        data = (await response.json()) as ResponseItem[];
+        data = (await response.json()) as responseItemType[];
     } catch (err) {
         return res.status(500);
     }
