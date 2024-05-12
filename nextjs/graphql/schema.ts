@@ -20,7 +20,7 @@ export const typeDefs = gql`
     type Query {
         weather(zip: String): [LocationWeatherType]!
     }
-    
+
     type Mutation {
         weather(data: LocationWeatherInput): [LocationWeatherType]!
     }

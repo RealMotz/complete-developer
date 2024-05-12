@@ -2,6 +2,7 @@ import { ApolloServer } from "@apollo/server";
 import { startServerAndCreateNextHandler } from "@as-integrations/next";
 import { resolvers } from "../../graphql/resolvers";
 import { typeDefs } from "../../graphql/schema";
+import dbConnect from "../../middleware/db-connect";
 import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
 
 //@ts-ignore
@@ -26,5 +27,10 @@ const allowCors =
     return await fn(req, res);
   };
 
-export default allowCors(handler);
+const connectDB = (fn: NextApiHandler) => async (req: NextApiRequest, res: NextApiResponse) => {
+  await dbConnect();
+  return await fn(req, res);
+};
+
+export default connectDB(allowCors(handler));
 
