@@ -8,6 +8,7 @@ async function dbConnect(): Promise<any | String> {
     await mongoose.connect(MONGOIO_URI, {
         dbName: "Weather"
     });
+    return mongoServer;
 }
 
 export default dbConnect;
